@@ -1,0 +1,16 @@
+--- /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/axolotl/layer_receive.py_mod	2017-04-20 13:23:02.197918294 +0200
++++ /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/axolotl/layer_receive.py	2017-04-20 13:24:19.958582766 +0200
+@@ -116,6 +116,13 @@
+                 return self.handleEncMessage(node)
+             else:
+                 logger.error("Ignoring message with untrusted identity")
++                
++        except ValueError as e:
++           logger.warning("Received unrecognized encrypted message. I'll send the delivery receipt myself")
++           self.toLower(OutgoingReceiptProtocolEntity(node["id"], node["from"], participant=node["participant"]).toProtocolTreeNode())
++    def handlePreKeyWhisperMessage(self, node):
++        pkMessageProtocolEntity = EncryptedMessageProtocolEntity.fromProtocolTreeNode(node)
++        enc = pkMessageProtocolEntity.getEnc(EncProtocolEntity.TYPE_PKMSG)
+ 
+     def handlePreKeyWhisperMessage(self, node):
+         pkMessageProtocolEntity = EncryptedMessageProtocolEntity.fromProtocolTreeNode(node)

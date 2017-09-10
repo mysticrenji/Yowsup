@@ -1,0 +1,9 @@
+--- /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/picture.py_bk	2017-04-20 14:26:12.432537894 +0200
++++ /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/picture.py	2017-04-20 14:28:08.754344622 +0200
+@@ -1,5 +1,5 @@
+ from yowsup.layers import YowLayer
+-from yowsup import ProtocolTreeNode
++from yowsup.structs import ProtocolTreeNode
+ from .mediadownloader import MediaDownloader
+ import shutil, os, logging
+ logger = logging.getLogger(__name__)
