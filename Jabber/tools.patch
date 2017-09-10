@@ -1,0 +1,21 @@
+--- /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/common/tools.py.orig	2017-04-23 11:18:02.397652000 +0200
++++ /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/common/tools.py	2017-09-09 23:48:46.544059303 +0200
+@@ -46,7 +46,17 @@
+             f.close()
+         b64Hash = base64.b64encode(sha1.digest())
+         return b64Hash if type(b64Hash) is str else b64Hash.decode()
+-
++		
++    @staticmethod
++    def getFileHashForUpload2(filePath):
++        sha1 = hashlib.sha256()
++        f = open(filePath, 'rb')
++        try:
++            hash = hashlib.sha256(f.read()).hexdigest()
++        finally:
++            f.close()
++        return hash
++		
+ class StorageTools:
+     @staticmethod
+     def constructPath(*path):

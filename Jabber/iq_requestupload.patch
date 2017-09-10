@@ -1,0 +1,20 @@
+--- /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/protocolentities/iq_requestupload.py.orig	2017-04-23 11:18:03.867652000 +0200
++++ /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/protocolentities/iq_requestupload.py	2017-09-09 23:52:37.393467919 +0200
+@@ -62,7 +62,7 @@
+         }
+         if self.origHash:
+             attribs["orighash"] = self.origHash
+-        mediaNode = ProtocolTreeNode("media", attribs)
++        mediaNode = ProtocolTreeNode("encr_media", attribs)
+         node.addChild(mediaNode)
+         return node
+ 
+@@ -71,7 +71,7 @@
+         assert node.getAttributeValue("type") == "set", "Expected set as iq type in request upload, got %s" % node.getAttributeValue("type")
+         entity = IqProtocolEntity.fromProtocolTreeNode(node)
+         entity.__class__ = RequestUploadIqProtocolEntity
+-        mediaNode = node.getChild("media")
++        mediaNode = node.getChild("encr_media")
+         entity.setRequestArguments(
+             mediaNode.getAttributeValue("type"),
+             mediaNode.getAttributeValue("hash"),

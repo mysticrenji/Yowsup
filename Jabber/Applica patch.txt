@@ -1,0 +1,11 @@
+#Applica patch per evitare crash nella ricezione dei messaggi audio ecc ecc.
+
+cp -pr /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/axolotl/layer_receive.py /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/axolotl/layer_receive.py_bk
+cd /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/axolotl
+patch < /layer_receive.patch
+rm /layer_receive.patch
+
+cp -pr /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/picture.py /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/picture.py_bk
+cd /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media
+patch < /picture.patch
+rm /picture.patch

@@ -1,0 +1,12 @@
+--- /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/protocolentities/message_media_downloadable_image.py.orig	2017-04-23 11:18:03.957652000 +0200
++++ /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/protocolentities/message_media_downloadable_image.py	2017-09-09 23:54:40.263164170 +0200
+@@ -56,7 +56,8 @@
+ 
+     def toProtocolTreeNode(self):
+         node = super(ImageDownloadableMediaMessageProtocolEntity, self).toProtocolTreeNode()
+-        mediaNode = node.getChild("media")
++        mediaNode = node.getChild("enc")
++        print ("MIME:" + self.mimeType)
+ 
+         mediaNode.setAttribute("encoding",  self.encoding)
+         mediaNode.setAttribute("width",     str(self.width))

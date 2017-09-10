@@ -1,0 +1,20 @@
+--- /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/protocolentities/iq_requestupload_result.py.orig	2017-04-23 11:18:03.877652000 +0200
++++ /usr/local/lib/python2.7/dist-packages/yowsup2-2.5.2-py2.7.egg/yowsup/layers/protocol_media/protocolentities/iq_requestupload_result.py	2017-09-09 23:53:33.513327395 +0200
+@@ -35,7 +35,7 @@
+         node = super(ResultRequestUploadIqProtocolEntity, self).toProtocolTreeNode()
+ 
+         if not self.isDuplicate():
+-            mediaNode = ProtocolTreeNode("media", {"url": self.url})
++            mediaNode = ProtocolTreeNode("encr_media", {"url": self.url})
+             if self.ip:
+                 mediaNode["ip"] = self.ip
+ 
+@@ -51,7 +51,7 @@
+     def fromProtocolTreeNode(node):
+         entity= ResultIqProtocolEntity.fromProtocolTreeNode(node)
+         entity.__class__ = ResultRequestUploadIqProtocolEntity
+-        mediaNode = node.getChild("media")
++        mediaNode = node.getChild("encr_media")
+         if mediaNode:
+             entity.setUploadProps(mediaNode["url"], mediaNode["ip"], mediaNode["resume"])
+         else:
