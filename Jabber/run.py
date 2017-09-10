@@ -11,7 +11,7 @@ from yowsup.env                                import YowsupEnv
 #import logging
 #logging.basicConfig(level=logging.DEBUG)
 
-CREDENTIALS = ("919061957981", "Pu4gJ//+L445+SHVZ9WbQ2HOUjQ=") #replace with your phone and password
+CREDENTIALS = ("9", "") #replace with your phone and password
 
 if __name__==  "__main__":
     stackBuilder = YowStackBuilder()

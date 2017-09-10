@@ -39,7 +39,7 @@ import sys, shutil, logging, mimetypes
 #print "Hello world !" # this is should be saved in yourlogfilename.txt
 #------------#------------#------------#------------#------------#------------
 logger = logging.getLogger(__name__)
-allowedPersons=['6583747967','6586723603'] #Filter the senders numbers
+allowedPersons=['65','65'] #Filter the senders numbers
 ap = set(allowedPersons)
 
 name = "NAMEPRESENCE"

@@ -8,12 +8,12 @@ from wareceive import YowsupReceiveStack, MessageReceived
 
 
 def credential():
-    return "919061957981", "Pu4gJ//+L445+SHVZ9WbQ2HOUjQ="
+    return "", ""
 
 
 def Answer(risp):
     try:
-       stack = YowsupSendStack(credential(), [(["919061957981", risp])])
+       stack = YowsupSendStack(credential(), [(["91", risp])])
        stack.start()
     except: pass
     return
@@ -54,7 +54,7 @@ while True:
            stack.start()
     except MessageReceived as rcvd:
            received=rcvd.value.lower()
-           if received[:len("6583747967")]=="6583747967":received=received[len("6583747967"):]
+           if received[:len("65")]=="65":received=received[len("65"):]
            if received[:4]=="hiya": Answer("Hi chap!")
            elif received[:7]=="restart" or received[:6]=="reboot": Restart()
            elif "disk" in received: Disk()
@@ -62,4 +62,4 @@ while True:
            elif "refresh" in received: Refresh()
            else: Answer("Eh? What was that?")
       # else: #message from wrong sender
-       #            with open("/home/pi/whatsapp.log","a") as mf: mf.write("Unauthorised access from: "+received[:len("6586723603")]+"\n")
+       #            with open("/home/pi/whatsapp.log","a") as mf: mf.write("Unauthorised access from: "+received[:len("")]+"\n")
